@@ -1,0 +1,14 @@
+@import "tailwindcss";
+
+@source '../../vendor/laravel/framework/src/Illuminate/Pagination/resources/views/*.blade.php';
+@source '../../storage/framework/views/*.php';
+@source '../**/*.blade.php';
+@source '../**/*.js';
+
+.sidebar-item {
+    @apply flex items-center gap-3 px-3 py-2 rounded-md cursor-pointer transition text-gray-100 hover:bg-blue-600;
+}
+
+.sidebar-item .material-icons {
+    @apply text-gray-200;
+}
