@@ -22,6 +22,22 @@ Route::middleware('auth')->group(function () {
     Route::get('/admin/dashboard', function () {
         return view('admin.dashboard');
     })->name('admin.dashboard');
+
+    Route::get('/admin/dashboard/guru', function () {
+        return view('admin.guru.index');
+    })->name('admin.guru.index');
+
+    Route::get('/admin/dashboard/siswa', function () {
+        return view('admin.siswa.index');
+    })->name('admin.siswa.index');
+
+    Route::get('/admin/dashboard/mapel', function () {
+        return view('admin.mapel.index');
+    })->name('admin.mapel.index');
+
+    Route::get('/admin/dashboard/banksoal', function () {
+        return view('admin.banksoal.index');
+    })->name('admin.banksoal.index');
     
     Route::get('/guru/dashboard', function () {
         return view('guru.dashboard');

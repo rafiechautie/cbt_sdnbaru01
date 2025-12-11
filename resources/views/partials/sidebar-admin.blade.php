@@ -3,22 +3,22 @@
     Dashboard
 </a>
 
-<a href="#" class="sidebar-item">
+<a href="{{ route('admin.guru.index') }}" class="sidebar-item">
     <span class="material-icons">groups</span>
     Data Guru
 </a>
 
-<a href="#" class="sidebar-item">
+<a href="{{ route('admin.siswa.index') }}" class="sidebar-item">
     <span class="material-icons">school</span>
     Data Siswa
 </a>
 
-<a href="#" class="sidebar-item">
+<a href="{{ route('admin.mapel.index') }}" class="sidebar-item">
     <span class="material-icons">menu_book</span>
     Mata Pelajaran
 </a>
 
-<a href="#" class="sidebar-item">
+<a href="{{ route('admin.banksoal.index') }}" class="sidebar-item">
     <span class="material-icons">inventory</span>
     Bank Soal
 </a>

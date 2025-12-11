@@ -12,3 +12,7 @@
 .sidebar-item .material-icons {
     @apply text-gray-200;
 }
+
+.table-row-hover:hover {
+    @apply bg-gray-50 cursor-pointer;
+}
