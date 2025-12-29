@@ -8,7 +8,7 @@
     <h3 class="text-xl font-bold text-blue-700 mb-4">Data Guru</h3>
 
     {{-- tombol tambah guru --}}
-    <a href="#" class="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700">
+    <a href="{{ route('admin.guru.create') }}" class="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700">
         + Tambah Guru
     </a>
 </div>

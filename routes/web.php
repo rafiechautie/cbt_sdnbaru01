@@ -27,6 +27,14 @@ Route::middleware('auth')->group(function () {
         return view('admin.guru.index');
     })->name('admin.guru.index');
 
+    Route::get('/admin/dashboard/guru/create', function () {
+        return view('admin.guru.create');
+    })->name('admin.guru.create');
+
+    Route::get('/admin/dashboard/guru/edit', function () {
+        return view('admin.guru.edit');
+    })->name('admin.guru.edit');
+
     Route::get('/admin/dashboard/siswa', function () {
         return view('admin.siswa.index');
     })->name('admin.siswa.index');
@@ -38,6 +46,14 @@ Route::middleware('auth')->group(function () {
     Route::get('/admin/dashboard/banksoal', function () {
         return view('admin.banksoal.index');
     })->name('admin.banksoal.index');
+
+    Route::get('/admin/dashboard/jadwalujian', function () {
+        return view('admin.jadwalujian.index');
+    })->name('admin.jadwalujian.index');
+
+    Route::get('/admin/dashboard/rekapnilai', function () {
+        return view('admin.rekapnilai.index');
+    })->name('admin.rekapnilai.index');
     
     Route::get('/guru/dashboard', function () {
         return view('guru.dashboard');

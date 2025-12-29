@@ -27,6 +27,7 @@ return new class extends Migration
             $table->text('opsi_e')->nullable();
             $table->enum('kunci_pilgan', ['A', 'B', 'C', 'D', 'E'])->nullable();
             $table->string('kunci_isian')->nullable();
+             $table->enum('status', ['draft', 'final', 'aktif'])->default('draft');
             $table->timestamps();
         });
     }

@@ -17,8 +17,8 @@ class BankSoal extends Model
         'soal',
         'tipe_soal',
         'gambar',
-    'audio',
-    'video_url',
+        'audio',
+        'video_url',
         'opsi_a',
         'opsi_b',
         'opsi_c',
@@ -26,6 +26,7 @@ class BankSoal extends Model
         'opsi_e',
         'kunci_pilgan',
         'kunci_isian',
+        'status',
     ];
 
     public function guru()

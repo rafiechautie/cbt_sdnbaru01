@@ -23,12 +23,12 @@
     Bank Soal
 </a>
 
-<a href="#" class="sidebar-item">
+<a href="{{ route('admin.jadwalujian.index') }}" class="sidebar-item">
     <span class="material-icons">event</span>
     Jadwal Ujian
 </a>
 
-<a href="#" class="sidebar-item">
+<a href="{{ route('admin.rekapnilai.index') }}" class="sidebar-item">
     <span class="material-icons">bar_chart</span>
     Rekap Nilai
 </a>

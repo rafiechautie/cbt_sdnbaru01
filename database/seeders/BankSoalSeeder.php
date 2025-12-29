@@ -25,6 +25,7 @@ class BankSoalSeeder extends Seeder
             'opsi_d' => '10',
             'opsi_e' => '28',
             'kunci_pilgan' => 'B',
+            'status' => 'final',
         ]);
 
         // Isian Teks
@@ -34,6 +35,7 @@ class BankSoalSeeder extends Seeder
             'tipe_soal' => 'isian_teks',
             'soal' => 'Sebutkan nama ibu kota Indonesia!',
             'kunci_isian' => 'Jakarta',
+            'status' => 'draft',
         ]);
 
         // Isian Angka
@@ -43,6 +45,7 @@ class BankSoalSeeder extends Seeder
             'tipe_soal' => 'isian_angka',
             'soal' => 'Berapakah hasil 15 × 4?',
             'kunci_isian' => '60',
+            'status' => 'aktif',
         ]);
     }
 }
