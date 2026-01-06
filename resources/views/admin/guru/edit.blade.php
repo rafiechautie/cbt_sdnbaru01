@@ -4,15 +4,16 @@
 
 @section('content')
 
-<div class="bg-white shadow rounded p-6 mb-6">
-    <h3 class="text-xl font-bold text-blue-700 mb-1">Ubah Data Guru</h3>
-    <p class="text-gray-600 text-sm">Masukkan data guru baru</p>
+<div class="mb-6">
+    <h1 class="text-2xl font-bold text-gray-800">Edit Guru</h1>
+    <p class="text-sm text-gray-500">Perbarui data guru</p>
 </div>
 
 <div class="bg-white shadow-lg rounded-xl p-6 max-w-3xl">
 
-    <form action="#" method="POST">
-        {{-- @csrf --}}
+    <form action="{{ route('admin.guru.update', $guru->id) }}" method="POST">
+        @csrf
+        @method('PUT')
 
         <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
 
@@ -22,8 +23,9 @@
                     Nama Guru
                 </label>
                 <input type="text"
-                       placeholder="Contoh: Bapak Ahmad"
-                       class="w-full px-4 py-2 border rounded-lg focus:ring-2 focus:ring-blue-500 focus:outline-none">
+                    name="name"
+                    value="{{ old('nama', $guru->user->name) }}"
+                    class="w-full px-4 py-2 border rounded-lg focus:ring-2 focus:ring-blue-500 focus:outline-none">
             </div>
 
             {{-- Username --}}
@@ -32,8 +34,9 @@
                     Username
                 </label>
                 <input type="text"
-                       placeholder="Contoh: guru001"
-                       class="w-full px-4 py-2 border rounded-lg focus:ring-2 focus:ring-blue-500 focus:outline-none">
+                    name="username"
+                    value="{{ old('username', $guru->user->username) }}"
+                    class="w-full px-4 py-2 border rounded-lg focus:ring-2 focus:ring-blue-500 focus:outline-none">
             </div>
 
             {{-- Password --}}
@@ -42,8 +45,9 @@
                     Password
                 </label>
                 <input type="password"
-                       placeholder="Minimal 8 karakter"
-                       class="w-full px-4 py-2 border rounded-lg focus:ring-2 focus:ring-blue-500 focus:outline-none">
+                    name="password"
+                    placeholder="Minimal 8 karakter"
+                    class="w-full px-4 py-2 border rounded-lg focus:ring-2 focus:ring-blue-500 focus:outline-none">
             </div>
 
             {{-- Mata Pelajaran --}}
@@ -51,13 +55,18 @@
                 <label class="block text-sm font-semibold text-gray-700 mb-1">
                     Mata Pelajaran
                 </label>
-                <select class="w-full px-4 py-2 border rounded-lg focus:ring-2 focus:ring-blue-500 focus:outline-none">
+                <select name="mapel_id"
+                    class="w-full px-4 py-2 border rounded-lg focus:ring-2 focus:ring-blue-500">
+
                     <option value="">-- Pilih Mapel --</option>
-                    <option>Matematika</option>
-                    <option>Bahasa Indonesia</option>
-                    <option>IPA</option>
-                    <option>IPS</option>
-                    <option>PAI</option>
+
+                    @foreach ($mapel as $item)
+                        <option value="{{ $item->id }}"
+                            {{ old('mapel_id', $guru->mapel_id) == $item->id ? 'selected' : '' }}>
+                            {{ $item->nama_mapel }}
+                        </option>
+                    @endforeach
+
                 </select>
             </div>
 

@@ -33,30 +33,34 @@
             </thead>
 
             <tbody class="text-gray-700">
-                <!-- Contoh data -->
-                <tr class="hover:bg-gray-50 transition border-b">
-                    <td class="px-4 py-3">1</td>
-                    <td class="px-4 py-3 font-medium">Bapak Ahmad</td>
-                    <td class="px-4 py-3">guru001</td>
-                    <td class="px-4 py-3">Matematika</td>
-                    <td class="px-4 py-3 text-center">
-                        <div class="flex justify-center gap-2">
-
-                            <button
+                @foreach ($guru as $item)
+                <tr>
+                    <td>{{ $loop->iteration }}</td>
+                    <td>{{ $item->user->name }}</td>
+                    <td>{{ $item->user->username }}</td>
+                    <td>{{ $item->mapel_id }}</td>
+                    <td>
+                        <a href="{{ route('admin.guru.edit', $item->id) }}"
                                 class="flex items-center gap-1 bg-yellow-400 hover:bg-yellow-500 text-white px-3 py-1.5 rounded-lg text-xs shadow transition">
-                                <span class="material-icons text-xs">edit</span>
-                                Edit
-                            </button>
+                                    <span class="material-icons text-xs">edit</span>
+                                    Edit
+                        </a>
 
-                            <button
-                                class="flex items-center gap-1 bg-red-500 hover:bg-red-600 text-white px-3 py-1.5 rounded-lg text-xs shadow transition">
+                        <form action="{{ route('admin.guru.destroy', $item->id) }}"
+                            method="POST"
+                            onsubmit="return confirm('Yakin hapus data guru ini?')"
+                            class="inline">
+                            @csrf
+                            @method('DELETE')
+
+                            <button class="flex items-center gap-1 bg-red-500 text-white px-3 py-1.5 rounded-lg text-xs">
                                 <span class="material-icons text-xs">delete</span>
                                 Hapus
                             </button>
-
-                        </div>
+                        </form>
                     </td>
                 </tr>
+                @endforeach
 
             </tbody>
         </table>

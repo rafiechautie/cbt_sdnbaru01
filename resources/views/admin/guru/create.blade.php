@@ -11,8 +11,9 @@
 
 <div class="bg-white shadow-lg rounded-xl p-6 max-w-3xl">
 
-    <form action="#" method="POST">
-        {{-- @csrf --}}
+    <form action="{{ route('admin.guru.store') }}" method="POST">
+        @csrf
+        @method('POST')
 
         <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
 
@@ -22,8 +23,9 @@
                     Nama Guru
                 </label>
                 <input type="text"
-                       placeholder="Contoh: Bapak Ahmad"
-                       class="w-full px-4 py-2 border rounded-lg focus:ring-2 focus:ring-blue-500 focus:outline-none">
+                    name="name"
+                    placeholder="Contoh: Bapak Ahmad"
+                    class="w-full px-4 py-2 border rounded-lg focus:ring-2 focus:ring-blue-500 focus:outline-none">
             </div>
 
             {{-- Username --}}
@@ -32,8 +34,9 @@
                     Username
                 </label>
                 <input type="text"
-                       placeholder="Contoh: guru001"
-                       class="w-full px-4 py-2 border rounded-lg focus:ring-2 focus:ring-blue-500 focus:outline-none">
+                    name="username"
+                    placeholder="Contoh: guru001"
+                    class="w-full px-4 py-2 border rounded-lg focus:ring-2 focus:ring-blue-500 focus:outline-none">
             </div>
 
             {{-- Password --}}
@@ -42,22 +45,25 @@
                     Password
                 </label>
                 <input type="password"
-                       placeholder="Minimal 8 karakter"
-                       class="w-full px-4 py-2 border rounded-lg focus:ring-2 focus:ring-blue-500 focus:outline-none">
+                    name="password"
+                    placeholder="Minimal 8 karakter"
+                    class="w-full px-4 py-2 border rounded-lg focus:ring-2 focus:ring-blue-500 focus:outline-none">
             </div>
 
             {{-- Mata Pelajaran --}}
             <div>
                 <label class="block text-sm font-semibold text-gray-700 mb-1">
-                    Mata Pelajaran
+                    Mata Pelajaran 1
                 </label>
-                <select class="w-full px-4 py-2 border rounded-lg focus:ring-2 focus:ring-blue-500 focus:outline-none">
+                <select name="mapel_id"
+                    class="w-full pl-10 pr-4 py-2.5 border rounded-lg focus:ring-2 focus:ring-blue-500 focus:outline-none">
                     <option value="">-- Pilih Mapel --</option>
-                    <option>Matematika</option>
-                    <option>Bahasa Indonesia</option>
-                    <option>IPA</option>
-                    <option>IPS</option>
-                    <option>PAI</option>
+
+                    @foreach ($mapel as $item)
+                        <option value="{{ $item->id }}">
+                            {{ $item->nama_mapel }}
+                        </option>
+                    @endforeach
                 </select>
             </div>
 

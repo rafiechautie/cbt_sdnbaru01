@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Admin\GuruController;
 use App\Http\Controllers\AuthController;
 use Illuminate\Support\Facades\Route;
 
@@ -23,17 +24,9 @@ Route::middleware('auth')->group(function () {
         return view('admin.dashboard');
     })->name('admin.dashboard');
 
-    Route::get('/admin/dashboard/guru', function () {
-        return view('admin.guru.index');
-    })->name('admin.guru.index');
-
-    Route::get('/admin/dashboard/guru/create', function () {
-        return view('admin.guru.create');
-    })->name('admin.guru.create');
-
-    Route::get('/admin/dashboard/guru/edit', function () {
-        return view('admin.guru.edit');
-    })->name('admin.guru.edit');
+    Route::prefix('admin/dashboard')->name('admin.')->group(function () {
+        Route::resource('guru', GuruController::class)->except(['show']);
+    });
 
     Route::get('/admin/dashboard/siswa', function () {
         return view('admin.siswa.index');
